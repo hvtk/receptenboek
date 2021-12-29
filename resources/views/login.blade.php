@@ -33,7 +33,7 @@
 <body class="antialiased">
   <main class="form-signin">
     <h1 class="h3 mb-3 fw-normal">Please signin</h1>
-    <form action="{{ route('sigin.custom') }}" method="POST">
+    <form action="{{ route('auth.sigin.custom') }}" method="POST">
       @csrf
       <div class="form-floating">
         <input type="text" name="email" class="form-control" id="email" placeholder="Email" required autofocus>

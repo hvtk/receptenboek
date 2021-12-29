@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Signin Template · Bootstrap v5.1</title>
+    <title>Sign-out Template · Bootstrap v5.1</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">
    
@@ -32,7 +32,7 @@
   </head>
 <body class="antialiased">
   <div class="form-signin" style="max-widht: 500px">
-      <a href="{{ route('logout') }}">Sign-out</a>
+      <a href="{{ route('auth.logout') }}">Sign-out</a>
   </div> 
 </body>
 </html>

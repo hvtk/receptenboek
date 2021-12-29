@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Signin Template · Bootstrap v5.1</title>
+    <title>Register Template · Bootstrap v5.1</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">
    
@@ -33,7 +33,7 @@
 <body class="antialiased">
   <main class="form-signin">
     <h1 class="h3 mb-3 fw-normal">Please register</h1>
-    <form action="{{ route('user.registration') }}" method="POST">
+    <form action="{{ route('auth.user.registration') }}" method="POST">
       @csrf
       <div class="form-floating">
         <input type="text" name="name" class="form-control" id="name" placeholder="Name">

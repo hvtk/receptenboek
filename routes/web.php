@@ -18,11 +18,11 @@ Route::get('/', function() {
     return view('welcome');
 });
 
-Route::get('/login', [AuthController::class, 'index'])->name('login');
-Route::post('/custom-signin', [AuthController::class, 'createSignin'])->name('sigin.custom');
+Route::get('/login', [AuthController::class, 'index'])->name('auth.login');
+Route::post('/custom-signin', [AuthController::class, 'createSignin'])->name('auth.custom.sigin');
 
-Route::get('/register', [AuthController::class, 'signup'])->name('register');
-Route::post('/creater-user', [AuthController::class, 'customSignup'])->name('user.registration');
+Route::get('/register', [AuthController::class, 'signup'])->name('auth.register');
+Route::post('/creater-user', [AuthController::class, 'customSignup'])->name('auth.user.registration');
 
-Route::get('/dashboard', [AuthController::class, 'dashboardView'])->name('dashboard');
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/dashboard', [AuthController::class, 'dashboardView'])->name('auth.dashboard');
+Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
