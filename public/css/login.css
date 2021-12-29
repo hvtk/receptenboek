@@ -37,3 +37,11 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.p-4 {
+  padding: 1rem;
+}
+
+nav a {
+  padding: .5rem;
+}

@@ -19,7 +19,7 @@ Route::get('/', function() {
 });
 
 Route::get('/login', [AuthController::class, 'index'])->name('auth.login');
-Route::post('/custom-signin', [AuthController::class, 'createSignin'])->name('auth.custom.sigin');
+Route::post('/custom-signin', [AuthController::class, 'createSignin'])->name('auth.custom.signin');
 
 Route::get('/register', [AuthController::class, 'signup'])->name('auth.register');
 Route::post('/creater-user', [AuthController::class, 'customSignup'])->name('auth.user.registration');
