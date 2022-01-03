@@ -18,6 +18,11 @@ Route::get('/', function() {
     return view('welcome');
 });
 
+Route::get('/account', function() {
+    return view('account');
+});
+
+
 Route::get('/login', [AuthController::class, 'index'])->name('auth.login');
 Route::post('/custom-signin', [AuthController::class, 'createSignin'])->name('auth.custom.signin');
 
