@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Account;
 
 class AccountController extends Controller
 {
@@ -26,6 +27,7 @@ class AccountController extends Controller
     public function create()
     {
         // GET
+        return view('account.create');
     }
 
     /**
@@ -37,6 +39,17 @@ class AccountController extends Controller
     public function store(Request $request)
     {
         // POST
+        $account = new Account();
+
+        $account->full_name = $request->input('fullName');
+        $account->email = $request->input('eMail');
+        $account->phone = $request->input('phone');
+        $account->street = $request->input('Street');
+        $account->city = $request->input('ciTy');
+        $account->state = $request->input('sTate');
+        $account->zip_code = $request->input('zIp');
+
+        $account->save();
     }
 
     /**
