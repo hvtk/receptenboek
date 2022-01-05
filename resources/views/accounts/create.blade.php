@@ -37,19 +37,34 @@
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="fullName">Full Name</label>
-                                    <input type="text" class="form-control" id="fullName" placeholder="Enter full name" name="fullName">
+                                    <input type="text" class="form-control" id="fullName" placeholder="Enter full name" value="{{ old('fullName') }}" name="fullName">
+                                    @error('fullName')
+                                        <div>
+                                            {{ $message }}
+                                        </div>    
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Enter email ID" name="email">
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email ID" value="{{ old('email') }}"  name="email">
+                                    @error('email')
+                                        <div>
+                                            {{ $message }}
+                                        </div>    
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="phone">Phone</label>
-                                    <input type="text" class="form-control" id="phone" placeholder="Enter phone number" name="phone">
+                                    <input type="text" class="form-control" id="phone" placeholder="Enter phone number" value="{{ old('phone') }}" name="phone">
+                                    @error('phone')
+                                        <div>
+                                            {{ $message }}
+                                        </div>    
+                                    @enderror
                                 </div>
                             </div>
                             <div class="row gutters">
@@ -59,25 +74,45 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="street">Street</label>
-                                        <input type="name" class="form-control" id="street" placeholder="Enter Street" name="street">
+                                        <input type="name" class="form-control" id="street" placeholder="Enter Street" value="{{ old('street') }}" name="street">
+                                        @error('street')
+                                        <div>
+                                            {{ $message }}
+                                        </div>    
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="city">City</label>
-                                        <input type="name" class="form-control" id="city" placeholder="Enter City" name="city">
+                                        <input type="name" class="form-control" id="city" placeholder="Enter City" value="{{ old('city') }}" name="city">
+                                        @error('city')
+                                        <div>
+                                            {{ $message }}
+                                        </div>    
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="state">State</label>
-                                        <input type="text" class="form-control" id="state" placeholder="Enter State" name="state">
+                                        <input type="text" class="form-control" id="state" placeholder="Enter State" value="{{ old('state') }}" name="state">
+                                        @error('state')
+                                        <div>
+                                            {{ $message }}
+                                        </div>    
+                                        @enderror 
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="zipCode">Zip Code</label>
-                                        <input type="text" class="form-control" id="zipCode" placeholder="Zip Code"name="zipCode">
+                                        <input type="text" class="form-control" id="zipCode" placeholder="Zip Code" value="{{ old('zipCode') }}" name="zipCode">
+                                        @error('zipCode')
+                                        <div>
+                                            {{ $message }}
+                                        </div>    
+                                        @enderror
                                     </div>
                                 </div>
                             </div>

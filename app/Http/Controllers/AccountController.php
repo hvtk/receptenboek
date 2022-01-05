@@ -45,16 +45,26 @@ class AccountController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'fullName' => 'required',
+            'email' => 'required',
+            'phone' => ['required', 'integer'],
+            'street' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'zipCode' => ['required', 'integer'],
+        ]);
+
         // POST
         $account = new Account();
 
-        $account->full_name = $request->input('fullName');
-        $account->email = $request->input('email');
-        $account->phone = $request->input('phone');
-        $account->street = $request->input('street');
-        $account->city = $request->input('city');
-        $account->state = $request->input('state');
-        $account->zip_code = $request->input('zipCode');
+        $account->full_name = strip_tags($request->input('fullName'));
+        $account->email = strip_tags($request->input('email'));
+        $account->phone = strip_tags($request->input('phone'));
+        $account->street = strip_tags($request->input('street'));
+        $account->city = strip_tags($request->input('city'));
+        $account->state = strip_tags($request->input('state'));
+        $account->zip_code = strip_tags($request->input('zipCode'));
 
         $account->save();
 

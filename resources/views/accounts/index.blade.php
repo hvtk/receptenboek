@@ -5,6 +5,8 @@
 
     @if (count($accounts) > 0)
 
+        @foreach ($accounts as $account)
+
         <div>
             <h3> 
                  <a href="{{ route('accounts.show', ['account' => $account['id']])}}">{{$account['full_name']}}</a> 
@@ -16,6 +18,8 @@
             <h3> {{$account['state']}} </h3>
             <h3> {{$account['zip_code']}} </h3>
         </div>
+
+        @endforeach
 
     @else
         <h2> There is no account information to display </h2>
