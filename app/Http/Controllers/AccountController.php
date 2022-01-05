@@ -7,6 +7,10 @@ use App\Models\Account;
 
 class AccountController extends Controller
 {
+    private static function getData() {
+        return [];
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +20,10 @@ class AccountController extends Controller
     {
         // GET
 
-        return view('account.index');
+        return view('accounts.index', [
+            'accounts' => Account::all(),
+            'userInput' => '<script>allert("hello")</script>'
+        ]);
     }
 
     /**
@@ -27,7 +34,7 @@ class AccountController extends Controller
     public function create()
     {
         // GET
-        return view('account.create');
+        return view('accounts.create');
     }
 
     /**
@@ -42,14 +49,16 @@ class AccountController extends Controller
         $account = new Account();
 
         $account->full_name = $request->input('fullName');
-        $account->email = $request->input('eMail');
+        $account->email = $request->input('email');
         $account->phone = $request->input('phone');
-        $account->street = $request->input('Street');
-        $account->city = $request->input('ciTy');
-        $account->state = $request->input('sTate');
-        $account->zip_code = $request->input('zIp');
+        $account->street = $request->input('street');
+        $account->city = $request->input('city');
+        $account->state = $request->input('state');
+        $account->zip_code = $request->input('zipCode');
 
         $account->save();
+
+        return redirect()->route('accounts.index');
     }
 
     /**
@@ -58,9 +67,20 @@ class AccountController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($account)
     {
         // GET
+        $accounts = self::getData();
+
+        $index = array_search($account, array_column($accounts, 'id'));
+
+        if ($index === false) {
+            abort(404);
+        }
+
+        return view('accounts.show', [
+            'account' => $accounts[$index]
+        ]);
     }
 
     /**

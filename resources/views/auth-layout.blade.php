@@ -35,7 +35,7 @@
       <nav>
         <a href="/login">Login</a>
         <a href="/register">Register</a>
-        <a href="{{ route('account.index') }}">Account</a>
+        <a href="{{ route('accounts.index') }}">Account</a>
         <a href="/dashboard">Logout</a>
       </nav>
   </div>

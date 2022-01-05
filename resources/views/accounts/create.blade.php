@@ -32,30 +32,24 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <h6 class="mb-2 text-primary">Personal Details</h6>
                         </div>
-                        <form method="POST" action="{{ route('account.store') }}">
+                        <form method="POST" action="{{ route('accounts.store') }}">
                             @csrf
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="fullName">Full Name</label>
-                                    <input type="text" class="form-control" id="fullName" placeholder="Enter full name">
+                                    <input type="text" class="form-control" id="fullName" placeholder="Enter full name" name="fullName">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <label for="eMail">Email</label>
-                                    <input type="email" class="form-control" id="eMail" placeholder="Enter email ID">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email ID" name="email">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="phone">Phone</label>
-                                    <input type="text" class="form-control" id="phone" placeholder="Enter phone number">
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label for="website">Website URL</label>
-                                    <input type="url" class="form-control" id="website" placeholder="Website url">
+                                    <input type="text" class="form-control" id="phone" placeholder="Enter phone number" name="phone">
                                 </div>
                             </div>
                             <div class="row gutters">
@@ -64,26 +58,26 @@
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="Street">Street</label>
-                                        <input type="name" class="form-control" id="Street" placeholder="Enter Street">
+                                        <label for="street">Street</label>
+                                        <input type="name" class="form-control" id="street" placeholder="Enter Street" name="street">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="ciTy">City</label>
-                                        <input type="name" class="form-control" id="ciTy" placeholder="Enter City">
+                                        <label for="city">City</label>
+                                        <input type="name" class="form-control" id="city" placeholder="Enter City" name="city">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="sTate">State</label>
-                                        <input type="text" class="form-control" id="sTate" placeholder="Enter State">
+                                        <label for="state">State</label>
+                                        <input type="text" class="form-control" id="state" placeholder="Enter State" name="state">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="zIp">Zip Code</label>
-                                        <input type="text" class="form-control" id="zIp" placeholder="Zip Code">
+                                        <label for="zipCode">Zip Code</label>
+                                        <input type="text" class="form-control" id="zipCode" placeholder="Zip Code"name="zipCode">
                                     </div>
                                 </div>
                             </div>
@@ -91,7 +85,7 @@
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <div class="text-right">
                                         <button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button>
-                                        <button type="submit" id="submit" name="submit" class="btn btn-primary">Update</button>
+                                        <button type="submit" class="btn btn-primary">Update</button>
                                     </div>
                                 </div>
                             </div>

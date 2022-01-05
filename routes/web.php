@@ -28,4 +28,4 @@ Route::post('/creater-user', [AuthController::class, 'customSignup'])->name('aut
 Route::get('/dashboard', [AuthController::class, 'dashboardView'])->name('auth.dashboard');
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
-Route::resource('account', AccountController::class);
+Route::resource('accounts', AccountController::class);
