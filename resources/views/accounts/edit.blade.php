@@ -123,6 +123,16 @@
                                         <button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button>
                                         <button type="submit" class="btn btn-primary">Update</button>
                                     </div>
+                                    <form method="POST" action="{{ route('accounts.destroy', ['account' => $account->id]) }}">
+                                         @csrf
+                                         @method('DELETE')
+                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                              <button type="submit" class="btn btn-primary">Delete</button>
+                                              $if ($session('success'))
+                                                 <p>{{ session('success') }}</p>
+                                              $endif
+                                         </div>
+                                    </Form>
                                 </div>
                             </div>
                         </form>
