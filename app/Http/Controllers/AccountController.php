@@ -80,17 +80,23 @@ class AccountController extends Controller
     public function show($account)
     {
         // GET
-        $accounts = self::getData();
-
-        $index = array_search($account, array_column($accounts, 'id'));
-
-        if ($index === false) {
-            abort(404);
-        }
-
         return view('accounts.show', [
-            'account' => $accounts[$index]
+            'account' => Account::findOrFail($account)
         ]);
+
+        //The code behind is an alternative from the code above
+      //$record = Account:: find($account);
+      //$accounts = self::getData();
+
+      //$index = array_search($account, array_column($accounts, 'id'));
+
+      //if ($index === false) {
+      //    abort(404);
+      //}
+
+      //return view('accounts.show', [
+      //    'account' => $record
+      //]); 
     }
 
     /**
@@ -99,9 +105,12 @@ class AccountController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($account)
     {
         // GET
+        return view('accounts.edit', [
+            'account' => Account::findOrFail($account)
+        ]);
     }
 
     /**
@@ -111,9 +120,33 @@ class AccountController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $account)
     {
         // POST
+        $request->validate([
+            'fullName' => 'required',
+            'email' => 'required',
+            'phone' => ['required', 'integer'],
+            'street' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'zipCode' => 'required',
+        ]);
+
+        // POST
+        $record = Account::findOrFail($account);
+
+        $record->full_name = strip_tags($request->input('fullName'));
+        $record->email = strip_tags($request->input('email'));
+        $record->phone = strip_tags($request->input('phone'));
+        $record->street = strip_tags($request->input('street'));
+        $record->city = strip_tags($request->input('city'));
+        $record->state = strip_tags($request->input('state'));
+        $record->zip_code = strip_tags($request->input('zipCode'));
+
+        $record->save();
+
+        return redirect()->route('accounts.show', $account);
     }
 
     /**
