@@ -161,5 +161,13 @@ class AccountController extends Controller
         $id->delete();
 
         return redirect('/')->with('success', 'Account deleted');
+
+        DB::delete('delete from account where id =?', [$id]);
+        echo "Record deleted succesfully.<br/>";
+        echo '<a href = "/delete-records">Click here</a> to go back.';
+        //Find out how to code this feedback!
+      //  $if ($session('success'))
+      //  <p>{{ session('success') }}</p>
+      //  $endif
     }
 }

@@ -22,9 +22,8 @@
     </div>
 
     <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" name="remember-me"> Remember me
-      </label>
+              <input type="checkbox" name="remember-me"> Remember me
+
     </div>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2021–2022</p>

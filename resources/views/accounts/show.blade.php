@@ -1,4 +1,4 @@
-@extends('auth-layout')
+@extends('account-layout')
 
 @section('content')
 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">

@@ -12,7 +12,7 @@ class AuthController extends Controller
 {
     public function index() 
     {
-        return view('login');
+        return view('authenticate.login');
     }
 
     public function createSignin(Request $request)
@@ -33,7 +33,7 @@ class AuthController extends Controller
 
     public function signup()
     {
-        return view('register');
+        return view('authenticate.register');
     }
 
     public function customSignup(Request $request)
@@ -70,6 +70,6 @@ class AuthController extends Controller
     {
         Session::flush();
         Auth::logout();
-        return Redirect('login');
+        return Redirect('authenticate.login');
     } 
 }

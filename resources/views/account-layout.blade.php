@@ -16,7 +16,7 @@
     </style>
 
     <!-- Custom styles for this template -->
-    <link href="css/login.css" rel="stylesheet">
+    <link href="css/account.css" rel="stylesheet">
   </head>
 <body>
   <div class="relative p-4">
@@ -27,7 +27,7 @@
         <a href="/dashboard">Logout</a>
       </nav>
   </div>
-  <div class="auth">
+  <div class="account">
     @yield('content')
   </div>
 </body>
