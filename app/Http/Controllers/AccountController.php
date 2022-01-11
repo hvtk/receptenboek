@@ -155,19 +155,12 @@ class AccountController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Account $id)
+    public function destroy($id)
     {
         // DELETE
-        $id->delete();
+        $account = Account::where('id', $id)->firstOrFail()->delete();
+        echo ("Account record deleted succesfully.");
 
-        return redirect('/')->with('success', 'Account deleted');
-
-        DB::delete('delete from account where id =?', [$id]);
-        echo "Record deleted succesfully.<br/>";
-        echo '<a href = "/delete-records">Click here</a> to go back.';
-        //Find out how to code this feedback!
-      //  $if ($session('success'))
-      //  <p>{{ session('success') }}</p>
-      //  $endif
+        return redirect('/');
     }
 }
