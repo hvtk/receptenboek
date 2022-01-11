@@ -29,5 +29,3 @@ Route::get('/dashboard', [AuthController::class, 'dashboardView'])->name('auth.d
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 Route::resource('accounts', AccountController::class);
-
-//Route::delete('accounts/{id}', [AccountController::class, 'destroy'])->name('account.destroy');
