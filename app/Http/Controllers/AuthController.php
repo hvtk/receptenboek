@@ -73,5 +73,11 @@ class AuthController extends Controller
         return Redirect('authenticate.login');
     } 
 
-    
+    public function destroy($id)
+    {
+        $createUser = User::findOrFail($id);
+        $createUser->delete();
+
+        return redirect('/');
+    }
 }

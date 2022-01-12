@@ -21,10 +21,10 @@
 <body>
   <div class="relative p-4">
       <nav>
-        <a href="/login">Login</a>
-        <a href="/register">Register</a>
+        <a href="{{ route('auth.login') }}">Login</a>
+        <a href="{{ route('auth.register') }}">Register</a>
         <a href="{{ route('accounts.index') }}">Account</a>
-        <a href="/dashboard">Logout</a>
+        <a href="{{ route('auth.dashboard') }}">Logout</a>
       </nav>
   </div>
   <div class="auth">
