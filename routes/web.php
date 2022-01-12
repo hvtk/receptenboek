@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\MainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,7 @@ Route::get('/dashboard', [AuthController::class, 'dashboardView'])->name('auth.d
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 Route::resource('accounts', AccountController::class);
+
+Route::get('/authenticate/login',[MainController::class, 'login'])->name('authenticate.login');
+Route::get('/authenticate/register',[MainController::class, 'register'])->name('authenticate.register');
+

@@ -21,16 +21,8 @@
     <link href="css/account.css" rel="stylesheet">
   </head>
 <body>
-  <div class="relative p-4">
-      <nav>
-        <a href="/login">Login</a>
-        <a href="/register">Register</a>
-        <a href="{{ route('accounts.index') }}">Account</a>
-        <a href="/dashboard">Logout</a>
-      </nav>
-  </div>
-  <div class="account">
+ 
     @yield('content')
-  </div>
+
 </body>
 </html>
