@@ -31,6 +31,20 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 Route::resource('accounts', AccountController::class);
 
-Route::get('/authenticate/login',[MainController::class, 'login'])->name('authenticate.login');
-Route::get('/authenticate/register',[MainController::class, 'register'])->name('authenticate.register');
 
+Route::post('/authenticate/save',[MainController::class, 'save'])->name('authenticate.save');
+Route::post('/authenticate/check',[MainController::class, 'check'])->name('authenticate.check');
+Route::get('/authenticate/logout',[MainController::class, 'logout'])->name('authenticate.logout');
+
+
+
+Route::group(['middleware'=>['AuthenticateCheck']], function() {
+    
+    Route::get('/authenticate/login',[MainController::class, 'login'])->name('authenticate.login');
+    Route::get('/authenticate/register',[MainController::class, 'register'])->name('authenticate.register');
+
+    Route::get('/admin/dashboard',[MainController::class, 'dashboard']);
+    Route::get('/admin/settings',[MainController::class, 'settings']);
+    Route::get('/admin/profile',[MainController::class, 'profile']);
+    Route::get('/admin/staff',[MainController::class, 'staff']);
+});
