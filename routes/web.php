@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\MainController;
 
@@ -24,9 +23,15 @@ Route::get('/', function() {
 
 Route::post('/accounts/store',[AccountController::class, 'store'])->name('accounts.store');
 Route::get('/accounts/create',[AccountController::class, 'create'])->name('accounts.create');
+
+Route::get('/accounts/show/{account}', [AccountController::class, 'show']);
 Route::get('/accounts/show', [AccountController::class, 'show'])->name('accounts.show');
+
 Route::get('/accounts/index', [AccountController::class, 'index'])->name('accounts.index');
+
+Route::get('/account/show/{account}/edit', [AccountController::class, 'edit']);
 Route::get('/accounts/edit', [AccountController::class, 'edit'])->name('accounts.edit');
+
 Route::post('/accounts/update', [AccountController::class, 'update'])->name('accounts.update');
 
 
