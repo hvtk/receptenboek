@@ -1,6 +1,6 @@
 @extends('account-layout')
 
-@section('title', 'Create a account')
+@section('title', 'Update a account')
 
 @section('content')
 <link href="css/account.css" rel="stylesheet">

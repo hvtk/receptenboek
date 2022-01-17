@@ -1,16 +1,32 @@
 @extends('account-layout')
 
 @section('content')
-<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+<div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
 
     <div>
-        <h3> {{$account['full_name']}} </h3>
-        <h3> {{$account['email']}} </h3>
-        <h3> {{$account['phone']}} </h3>
-        <h3> {{$account['street']}} </h3>
-        <h3> {{$account['city']}} </h3>
-        <h3> {{$account['state']}} </h3>
-        <h3> {{$account['zip_code']}} </h3>
+        <ul>
+            <li>
+               Name: {{$account['full_name']}} 
+            </li>
+            <li>
+               Email adress: {{$account['email']}}
+            </li>
+            <li>
+               Phone number: {{$account['phone']}} 
+            </li>
+            <li>
+               Address:  {{$account['street']}} 
+            </li>
+            <li>
+               City:  {{$account['city']}} 
+            </li>
+            <li>
+               State:  {{$account['state']}}
+            </li>
+            <li>
+               Zip code: {{$account['zip_code']}}
+            </li>
+        </ul>
     </div>
     
 </div>
