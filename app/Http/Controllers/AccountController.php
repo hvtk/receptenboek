@@ -31,12 +31,12 @@ class AccountController extends Controller
     {
         $request->validate([
             'fullName' => 'required',
-            'email' => 'required',
-            'phone' => ['required', 'integer'],
+            'email' => ['required', 'email'],
+            'phone' => ['required', 'numeric'],
             'street' => 'required',
             'city' => 'required',
             'state' => 'required',
-            'zipCode' => ['required', 'integer'],
+            'zipCode' => ['required'],
         ]);
 
         // POST
@@ -90,8 +90,8 @@ class AccountController extends Controller
         // POST
         $request->validate([
             'fullName' => 'required',
-            'email' => 'required',
-            'phone' => ['required', 'integer'],
+            'email' => ['required', 'email'],
+            'phone' => ['required', 'numeric'],
             'street' => 'required',
             'city' => 'required',
             'state' => 'required',

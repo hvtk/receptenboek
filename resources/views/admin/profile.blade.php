@@ -1,4 +1,4 @@
-@extends('auth-layout')
+@extends('main-layout')
 
 @section('title', 'Profile Page')
 
