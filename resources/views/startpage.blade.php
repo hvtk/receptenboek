@@ -11,7 +11,7 @@
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/navbar-collapsing.css">
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -25,12 +25,16 @@
         <nav id="sidebar">
             <div class="sidebar-header">
                 <h3>Bootstrap Sidebar</h3>
+                <strong>BS</strong>
             </div>
 
             <ul class="list-unstyled components">
                 <p>Dummy Heading</p>
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
                             <a href="#">Home 1</a>
@@ -44,10 +48,16 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">About</a>
+                    <a href="#">
+                        <i class="fas fa-briefcase"></i>
+                        About
+                    </a>
                 </li>
                 <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-copy"></i>
+                        Pages
+                    </a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
                             <a href="#">Page 1</a>
@@ -61,17 +71,22 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Portfolio</a>
+                    <a href="#">
+                        <i class="fas fa-images"></i>
+                        Portfolio
+                    </a>
                 </li>
                 <li>
-                    <a href="#">Contact</a>
+                    <a href="#">
+                        <i class="fas fa-user"></i>
+                        Contact
+                    </a>
                 </li>
             </ul>
-            ...
         </nav>
 
         <!-- Page Content -->
-        
+
         <!-- Sidebar toggle button -->
         <div id="content">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
