@@ -19,6 +19,12 @@ Route::get('/', function() {
     return view('welcome');
 });
 
+
+Route::get('/startpage', function() {
+    return view('startpage');
+});
+
+
 //Route::resource('accounts', AccountController::class);
 
 Route::post('/accounts',[AccountController::class, 'store'])->name('accounts.store');
