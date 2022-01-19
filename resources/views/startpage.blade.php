@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Collapsible sidebar using Bootstrap 4</title>
+    <title>@yield('title')Collapsible sidebar using Bootstrap 4</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -38,13 +38,13 @@
                     </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="#">Register</a>
+                            <a href="{{ route('authenticate.register') }}">Register</a>
                         </li>
                         <li>
-                            <a href="#">Login</a>
+                            <a href="{{ route('authenticate.login') }}">Login</a>
                         </li>
                         <li>
-                            <a href="#">Logout</a>
+                            <a href="{{ route('authenticate.logout') }}">Logout</a>
                         </li>
                     </ul>
                 </li>
@@ -80,6 +80,12 @@
                 <li>
                     <a href="#">
                         <i class="fas fa-user"></i>
+                        Account
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-info-circle"></i>
                         Contact
                     </a>
                 </li>
@@ -102,6 +108,8 @@
             </nav>
         </div>
 
+        @yield('content')    
+            
     </div> 
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->

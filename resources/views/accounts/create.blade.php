@@ -1,4 +1,4 @@
-@extends('account-layout')
+@extends('startpage')
 
 @section('title', 'Create a account')
 
