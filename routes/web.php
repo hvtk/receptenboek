@@ -19,11 +19,9 @@ Route::get('/', function() {
     return view('welcome');
 });
 
-
-Route::get('/startpage', function() {
+Route::get('/receptenboek', function() {
     return view('startpage');
 });
-
 
 //Route::resource('accounts', AccountController::class);
 
