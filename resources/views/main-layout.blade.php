@@ -81,14 +81,10 @@
     <div class="wrapper">
         <!-- Sidebar -->
         <nav id="sidebar">
-            <div class="sidebar-header">
-                <h4>
-                    <strong>HK</strong>
-                </h4>
-            </div>
+            
+        
 
             <ul class="list-unstyled components">
-                <h4>Recipe book</h4>
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="fas fa-home"></i>
@@ -136,7 +132,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('accounts.create') }}">
                         <i class="fas fa-user"></i>
                         Account
                     </a>
@@ -166,10 +162,11 @@
             </nav>
         </div>
 
-        @yield('content')    
-            
+        @yield('content')  
+
     </div> 
 
+      
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Popper.JS -->
