@@ -109,13 +109,20 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <a href="#recipeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="fas fa-copy"></i>
                         Recipes
                     </a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <ul class="collapse list-unstyled" id="recipeSubmenu">
                         <li>
-                            <a href="#">Make</a>
+                            <a href="#recipeMakeSubmenu"data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                                Make
+                            </a>
+                            <ul class="collapse list-unstyled" id="recipeMakeSubmenu">
+                                <li>
+                                    Add a picture
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="#">Change</a>

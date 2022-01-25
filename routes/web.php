@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\ImageUploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,9 @@ Route::get('/', function() {
 Route::get('/receptenboek', function() {
     return view('startpage');
 });
+
+Route::get('/image', [ImageUploadController::class, 'index']);
+Route::post('/upload', [ImageUploadController::class, 'upload']);
 
 //Route::resource('accounts', AccountController::class);
 
