@@ -14,6 +14,19 @@
                             <h6 class="mb-2 text-primary">Personal Details</h6>
                         </div>
                         <form method="POST" action="{{ route('accounts.update', ['account' => $account->id]) }}">
+
+                            @if(Session::get('success'))
+                            <div class="alert alert-success">
+                                {{ Session::get('success') }}
+                            </div>
+                            @endif
+
+                            @if(Session::get('fail'))
+                            <div class="alert alert-danger">
+                                {{ Session::get('fail') }}
+                            </div>
+                            @endif
+                            
                             @csrf
                             @method('PUT')
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">

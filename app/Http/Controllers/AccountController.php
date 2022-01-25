@@ -50,9 +50,14 @@ class AccountController extends Controller
         $account->state = strip_tags($request->input('state'));
         $account->zip_code = strip_tags($request->input('zipCode'));
 
-        $account->save();
+        $save = $account->save();
 
-        return redirect()->route('accounts.index');
+        if($save) {
+            return back()->with('success', 'The User info has been successfully added to the database.');
+        }
+        else {
+            return back()->with('fail', 'Something went wrong, try again later.');
+        }
     }
 
     public function show($account)
@@ -109,9 +114,14 @@ class AccountController extends Controller
         $record->state = strip_tags($request->input('state'));
         $record->zip_code = strip_tags($request->input('zipCode'));
 
-        $record->save();
+        $update = $record->save();
 
-        return redirect()->route('accounts.show', $account);
+        if($update) {
+            return back()->with('success', 'The User info has been successfully updated and added to the database.');
+        }
+        else {
+            return back()->with('fail', 'Something went wrong, try again later.');
+        }
     }
 
     public function destroy($id)

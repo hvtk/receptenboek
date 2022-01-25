@@ -98,7 +98,7 @@
                             <a href="{{ route('authenticate.login') }}">Login</a>
                         </li>
                         <li>
-                            <a href="{{ route('authenticate.logout') }}">Logout</a>
+                            <a href="{{ route('authenticate.register') }}">Logout</a>
                         </li>
                     </ul>
                 </li>
@@ -132,10 +132,18 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('accounts.create') }}">
+                    <a href="#accountSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="fas fa-user"></i>
                         Account
                     </a>
+                    <ul class="collapse list-unstyled" id="accountSubmenu">
+                        <li>
+                            <a href="{{ route('accounts.create') }}">Create</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('accounts.create') }}">Update</a>
+                        </li> 
+                    </ul>
                 </li>
                 <li>
                     <a href="#">
