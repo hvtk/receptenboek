@@ -38,12 +38,10 @@
                 <td>{{ $post->description }}</td>
                 <td>
                     <form action="{{ route('posts.destroy',$post->id) }}" method="POST">
-        
-                        <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">Edit</a>
-    
                         @csrf
                         @method('DELETE')
-        
+
+                        <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">Edit</a>
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </td>

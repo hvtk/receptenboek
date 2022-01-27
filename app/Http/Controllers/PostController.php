@@ -89,9 +89,9 @@ class PostController extends Controller
         $post = Post::find($id);
         if($request->hasFile('image')) {
             $request->validate([
-                'image' => 'required|image|mimes;jpg,png,jpeg,gif,svg|max:2048',
+                'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             ]);
-            $path = $request->file('image')->stor('public/images');
+            $path = $request->file('image')->store('public/images');
             $post->image = $path;
         }
         $post->title = $request->title;
