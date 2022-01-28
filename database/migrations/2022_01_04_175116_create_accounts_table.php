@@ -15,6 +15,7 @@ class CreateAccountsTable extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('full_name');
             $table->string('email');
             $table->integer('phone');
@@ -23,6 +24,9 @@ class CreateAccountsTable extends Migration
             $table->string('state');
             $table->string('zip_code');
             $table->timestamps();
+
+            //set user_id as a foreign key and the account will be deleted if we delete the user
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

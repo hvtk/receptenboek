@@ -103,7 +103,6 @@ class AccountController extends Controller
             'zipCode' => 'required',
         ]);
 
-        // POST
         $record = Account::findOrFail($account);
 
         $record->full_name = strip_tags($request->input('fullName'));
