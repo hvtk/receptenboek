@@ -42,8 +42,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    //Get the account associated with the user
-    public function account()
+    public function infoUser()
     {
         return $this->hasOne(Account::class);
     }

@@ -9,7 +9,8 @@ class Account extends Model
 {
     use HasFactory;
 
-    //Get the user that owns the account.
+    protected $guarded = [];
+
     public function user()
     {
         return $this->belongsTo(User::class);

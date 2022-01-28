@@ -14,6 +14,8 @@ class AccountController extends Controller
     public function index()
     {
         // GET
+        $infoUser = Account::with(['user'])->get();
+        dd($infoUser);
 
         return view('accounts.index', [
             'accounts' => Account::all(),

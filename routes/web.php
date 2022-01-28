@@ -24,6 +24,8 @@ Route::get('/receptenboek', function() {
     return view('startpage');
 });
 
+Route::get('/infoUser', [AccountController::class, 'index']);
+
 //routes for posts(upload images)
 Route::post('/posts',[PostController::class, 'store'])->name('posts.store');
 Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
