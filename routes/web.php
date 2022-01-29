@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,8 @@ Route::get('/receptenboek', function() {
     return view('startpage');
 });
 
-Route::get('/infoUser', [AccountController::class, 'index']);
+Route::get('get-account/{id}', [SiteController::class, 'getAccount']);
+Route::get('get-user/{id}', [SiteController::class, 'getUser']);   
 
 //routes for posts(upload images)
 Route::post('/posts',[PostController::class, 'store'])->name('posts.store');

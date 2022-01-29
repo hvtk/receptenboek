@@ -14,9 +14,6 @@ class AccountController extends Controller
     public function index()
     {
         // GET
-        $infoUser = Account::with(['user'])->get();
-        dd($infoUser);
-
         return view('accounts.index', [
             'accounts' => Account::all(),
             'userInput' => '<script>allert("hello")</script>'
@@ -98,7 +95,7 @@ class AccountController extends Controller
         $request->validate([
             'fullName' => 'required',
             'email' => ['required', 'email'],
-            'phone' => ['required', 'numeric'],
+            'phone' => 'required',
             'street' => 'required',
             'city' => 'required',
             'state' => 'required',

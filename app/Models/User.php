@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Account;
 
 class User extends Authenticatable
 {
@@ -42,8 +43,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function infoUser()
+    //Get the account records associated with the user.
+    public function account()
     {
         return $this->hasOne(Account::class);
+        //Or retrun $this->hasOne('App\Account');
     }
 }
