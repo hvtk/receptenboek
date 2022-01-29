@@ -26,7 +26,9 @@ class CreateAccountsTable extends Migration
             $table->timestamps();
 
             //set user_id as a foreign key and the account will be deleted if we delete the user
-            $table->foreign('user_id')->references('id')->on('users')
+            $table->foreign('user_id')->unsigned()
+            ->references('id')
+            ->on('users')
             ->onDelete('cascade');
         });
     }
