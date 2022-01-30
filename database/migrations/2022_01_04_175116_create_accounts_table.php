@@ -15,7 +15,7 @@ class CreateAccountsTable extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unsigned()->nullable();
+           // $table->integer('user_id')->unsigned()->nullable();
             $table->string('full_name');
             $table->string('email');
             $table->string('phone');
@@ -26,7 +26,9 @@ class CreateAccountsTable extends Migration
             $table->timestamps();
 
             //set user_id as a foreign key and the account will be deleted if we delete the user
-            $table->foreign('user_id')->unsigned()
+            $table->foreignId('user_id')
+            ->constrained('users')
+            ->unsigned()
             ->references('id')
             ->on('users')
             ->onDelete('cascade');
