@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\SiteController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +25,10 @@ Route::get('/receptenboek', function() {
     return view('startpage');
 });
 
-Route::get('get-account/{id}', [SiteController::class, 'getAccount']);
-Route::get('get-user/{id}', [SiteController::class, 'getUser']);   
+
+//routes for one to one relationship between account and user. this is only a test for how it works!
+Route::get('add-user', [UserController::class, 'insertRecord']);
+Route::get('get-account/{id}', [UserController::class, 'fetchAccountByUser']);
 
 //routes for posts(upload images)
 Route::post('/posts',[PostController::class, 'store'])->name('posts.store');

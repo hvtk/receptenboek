@@ -28,14 +28,14 @@ class AccountController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $request->validate( [
             'fullName' => 'required',
             'email' => ['required', 'email'],
-            'phone' => ['required', 'numeric'],
+            'phone' => 'required',
             'street' => 'required',
             'city' => 'required',
             'state' => 'required',
-            'zipCode' => ['required'],
+            'zipCode' => 'required',
         ]);
 
         // POST

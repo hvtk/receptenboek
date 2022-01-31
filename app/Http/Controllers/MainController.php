@@ -25,7 +25,7 @@ class MainController extends Controller
             'password'=>'required|min:5|max:12'
         ]);
 
-        //insert data into database
+        //insert data into admin-database
         $admin = new Admin;
         $admin->name = $request->name;
         $admin->email = $request->email;
