@@ -17,7 +17,7 @@
             <tr>
               <td>{{ $LoggedUserInfo['name'] }}</td>
               <td>{{ $LoggedUserInfo['email'] }}</td>
-              <td><a href="{{ route('authenticate.logout') }}"> Logout </a></td>
+              <td><a href="{{ route('authenticate.register') }}"> Logout </a></td>
             </tr>  
           </tbody>
         </table>
