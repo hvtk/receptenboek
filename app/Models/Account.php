@@ -12,9 +12,16 @@ class Account extends Model
     protected $table = "accounts";
 
     //Get the user that owns the account
-    public function user()
-    {
-       return $this->belongsTo(User::class);
+  //  public function user()
+   // {
+  //     return $this->belongsTo(User::class);
         //Or return $this->belongsTo('App\User');
+ //   }
+
+    //Get the admin that owns the account
+    public function admin()
+    {
+       return $this->belongsTo(Admin::class);
+        //Or return $this->belongsTo('App\Admin');
     }
 }

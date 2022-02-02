@@ -6,24 +6,26 @@ use Illuminate\Http\Request;
 use App\Models\Account;
 use App\Models\User;
 
-class UserController extends Controller
+//Made for testing one to one relationship.
+
+class UserTestController extends Controller
 {
 
     public function insertRecord()
     {
         $account = new Account();
 
-        $account->full_name = 'fullName';
-        $account->email = 'email';
-        $account->phone = 'phone';
-        $account->street = 'street';
-        $account->city = 'city';
-        $account->state = 'state';
-        $account->zip_code = 'zipCode';
+        $account->full_name = 'Mirjam';
+        $account->email = 'mirjam@gmail.com';
+        $account->phone = '0647123326';
+        $account->street = 'Novalaan 1';
+        $account->city = 'Ede';
+        $account->state = 'gelderland';
+        $account->zip_code = '6717 SV';
 
         $user = new User();
-        $user->name = "Henk";
-        $user->email = "henk@gmail.com";
+        $user->name = "Mirjam";
+        $user->email = "mirjam@gmail.com";
         $user->password = encrypt('secret');
         $user->save();
         $user->account()->save($account);

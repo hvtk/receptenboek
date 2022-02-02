@@ -6,7 +6,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controllers\UserTestController;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\MainTestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,8 +31,8 @@ Route::get('/receptenboek', function() {
 
 
 //routes for one to one relationship between account and user. this is only a test for how it works!
-Route::get('add-user', [UserController::class, 'insertRecord']);
-Route::get('get-account/{id}', [UserController::class, 'fetchAccountByUser']);
+Route::get('add-user', [UserTestController::class, 'insertRecord']);
+Route::get('get-account/{id}', [UserTestController::class, 'fetchAccountByUser']);
 
 //routes for posts(upload images)
 Route::post('/posts',[PostController::class, 'store'])->name('posts.store');
@@ -53,8 +55,11 @@ Route::get('/accounts/{account}', [AccountController::class, 'show'])->name('acc
 Route::get('/accounts/{account}/edit', [AccountController::class, 'edit'])->name('accounts.edit');
 
 //Routes for authenticate and admin
-Route::post('/authenticate/save',[UserController::class, 'save'])->name('authenticate.save');
-Route::post('/authenticate/check',[UserController::class, 'check'])->name('authenticate.check');
+//Route::post('/authenticate/save',[MainTestController::class, 'save'])->name('authenticate.save');
+//Route::post('/authenticate/check',[MainTestController::class, 'check'])->name('authenticate.check');
+
+Route::post('/authenticate/save',[MainController::class, 'save'])->name('authenticate.save');
+Route::post('/authenticate/check',[MainController::class, 'check'])->name('authenticate.check');
 Route::get('/authenticate/logout',[AuthController::class, 'logout'])->name('authenticate.logout');
 
 Route::group(['middleware'=>['AuthenticateCheck']], function() {

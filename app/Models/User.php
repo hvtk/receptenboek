@@ -43,9 +43,9 @@ class User extends Authenticatable
     ];
 
     //Get the account records associated with the user.
-    public function account()
-    {
-        return $this->hasOne(Account::class);
+   // public function account()
+    //{
+ //       return $this->hasOne(Account::class);
         //Or retrun $this->hasOne('App\Account');
-    }
+   // }
 }
