@@ -17,7 +17,8 @@ class MainController extends Controller
     }
 
     public function save(Request $request) {
-        
+        //POST
+
         //validate requests
         $request->validate([
             'name'=>'required',
@@ -41,6 +42,7 @@ class MainController extends Controller
     }
 
     public function check(Request $request) {
+        //POST
 
         //validate requests
         $request->validate([
