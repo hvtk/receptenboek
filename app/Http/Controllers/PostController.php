@@ -12,14 +12,12 @@ class PostController extends Controller
         //GET
         $data['posts'] = Post::orderBy('id', 'desc')->paginate(5);
 
-        return view('posts.index', $data);
-
-       // return view('/recipes/image-upload');
-
+        return view('posts.index', $data)
     }
 
     public function create()
     {
+        //GET
         return view('posts.create');
     }
 
@@ -43,22 +41,6 @@ class PostController extends Controller
 
         return redirect()->route('posts.index')
                         ->with('success', 'Post has been created successfully.');
-
-       // $validatedData = $request->validate([
-       //     'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-       // ]);
-
-       // $name = $request->file('image')->getClientOriginalName();
-       // $path = $request->file('image')->store('public/images');
-
-       // $save = new Image;
-
-       // $save->name = $name;
-       // $save->path = $path;
-
-       // $save->save();
-
-       // return redirect('upload.image.index')->with('status', 'Image has been uploaded successfully with validation.');
     }
 
     public function show(Post $post)
@@ -68,16 +50,14 @@ class PostController extends Controller
     }
 
     public function edit(Post $post)
-
-        //GET
     {
+        //GET
         return view('posts.edit',compact('post'));
     }
 
 
     public function update(Request $request, $id)
     {
-
         //POST
 
         //validate requests
@@ -102,14 +82,13 @@ class PostController extends Controller
                         ->with('success','Post updated successfully.');
     }
 
-    public function destroy(Post $post)
+    public function destroy(Post $post)  
+    {
+        //DELETE
+        $post->delete();
 
-    //DELETE
-{
-    $post->delete();
-
-    return redirect()->route('posts.index')
-                    ->with('success', 'Post has been deleted successfully.');
-}
+        return redirect()->route('posts.index')
+                        ->with('success', 'Post has been deleted successfully.');
+    }
 
 }
