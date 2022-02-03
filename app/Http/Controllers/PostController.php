@@ -12,7 +12,7 @@ class PostController extends Controller
         //GET
         $data['posts'] = Post::orderBy('id', 'desc')->paginate(5);
 
-        return view('posts.index', $data)
+        return view('posts.index', $data);
     }
 
     public function create()
