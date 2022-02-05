@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\AccountTest;
-use App\Models\UserTest;
+use App\Models\User;
 
 //Made for testing one to one relationship.
 
@@ -15,17 +15,17 @@ class UserTestController extends Controller
     {
         $accountTest = new AccountTest();
 
-        $accountTest->full_name = 'Mirjam';
-        $accountTest->email = 'mirjam@gmail.com';
+        $accountTest->full_name = 'Henk';
+        $accountTest->email = 'henk@gmail.com';
         $accountTest->phone = '0647123326';
-        $accountTest->street = 'Novalaan 1';
-        $accountTest->city = 'Ede';
-        $accountTest->state = 'gelderland';
-        $accountTest->zip_code = '6717 SV';
+        $accountTest->street = 'street';
+        $accountTest->city = 'city';
+        $accountTest->state = 'state';
+        $accountTest->zip_code = 'zipCode';
 
-        $userTest = new UserTest();
-        $userTest->name = "Mirjam";
-        $userTest->email = "mirjam@gmail.com";
+        $userTest = new User();
+        $userTest->name = "Henk";
+        $userTest->email = "henk@gmail.com";
         $userTest->password = encrypt('secret');
         $userTest->save();
         $userTest->accountTest()->save($accountTest);
@@ -34,7 +34,7 @@ class UserTestController extends Controller
 
     public function fetchAccountByUser($id)
     {
-        $accountTest = UserTest::find($id)->accountTest;
+        $accountTest = User::find($id)->accountTest;
         return $accountTest;
     }
 }
