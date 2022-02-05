@@ -52,8 +52,11 @@ Route::get('/accounts/create',[AccountController::class, 'create'])->name('accou
 Route::get('/accounts/{account}', [AccountController::class, 'show'])->name('accounts.show');
 Route::get('/accounts/{account}/edit', [AccountController::class, 'edit'])->name('accounts.edit');
 
+//Route with one to one relationship
+Route::post('/authenticate/save',[AdminController::class, 'save'])->name('authenticate.save');
+
 //Routes for authenticate and admin
-Route::post('/authenticate/save',[MainController::class, 'save'])->name('authenticate.save');
+//Route::post('/authenticate/save',[MainController::class, 'save'])->name('authenticate.save');
 Route::post('/authenticate/check',[MainController::class, 'check'])->name('authenticate.check');
 Route::get('/authenticate/logout',[AuthController::class, 'logout'])->name('authenticate.logout');
 

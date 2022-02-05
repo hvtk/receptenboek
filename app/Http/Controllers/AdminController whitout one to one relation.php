@@ -6,21 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Hash;
 
-use App\Http\Controllers\AccountController;
-
 class AdminController extends Controller
 {
-    protected $AccountController;
-    public function __construct(AccountController $AccountController)
-    {
-        $this->AccountController = $AccountController;
-    }
 
     public function save(Request $request) {
-
-        $save = $this->AccountController->store();
-        return $save;
-      
+        
         //validate requests
         $request->validate([
             'name'=>'required',
@@ -33,11 +23,9 @@ class AdminController extends Controller
         $admin->name = $request->name;
         $admin->email = $request->email;
         $admin->password = Hash::make($request->password);
-        $admin->accountTest()->save($accountTest);
-        $admin->save();
-        $admin->account()->save($account);
+        $save = $admin->save();
 
-        if($admin) {
+        if($save) {
             return back()->with('success', 'New User has been successfully added to database.');
         }
         else {

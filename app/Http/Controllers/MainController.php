@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Hash;
 
+//Combination controller for authenticate and admin
+
 class MainController extends Controller
 {
     public function login() {

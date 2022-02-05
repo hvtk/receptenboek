@@ -7,6 +7,8 @@ use App\Models\AccountTest;
 use App\Models\User;
 
 //Made for testing one to one relationship.
+//used the AccountTest and User model
+//also used the accout_tests_table and user_table
 
 class UserTestController extends Controller
 {
