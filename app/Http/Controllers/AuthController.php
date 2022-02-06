@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+//Without relationships
+
 class AuthController extends Controller
 {
     public function login() {

@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Post;
 
-//Without relationships
 
-class PostController extends Controller
+class DownloadedInfoController extends Controller
 {
+    //Have to change the code from PostController to DownloadedInfoController
     public function index()
     {
         //GET
@@ -92,5 +91,4 @@ class PostController extends Controller
         return redirect()->route('posts.index')
                         ->with('success', 'Post has been deleted successfully.');
     }
-
 }

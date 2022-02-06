@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Admin;
+use App\Models\User;
 
 //Made for testing one to one relationship.
 //Used the UserTestController/AccountTest and User model
@@ -27,10 +27,10 @@ class AccountTest extends Model
         'zip_code',
     ];
 
-    //Get the admin that owns the accountTest
-    public function admin()
+    //Get the usertest that owns the accountTest
+    public function user()
     {
-       return $this->belongsTo(Admin::class);
-        //Or return $this->belongsTo('App\Models\Admin');
+       return $this->belongsTo(User::class);
+        //Or return $this->belongsTo('App\Models\User');
     }
 }

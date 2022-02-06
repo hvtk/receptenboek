@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Account;
 
-//Without relationships
-
-class AccountController extends Controller
+class PersonalDataController extends Controller
 {
+    //Have to change the code from AccountController to PersonalDataController
     private static function getData() {
         return [];
     }

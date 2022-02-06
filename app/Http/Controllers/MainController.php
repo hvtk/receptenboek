@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Hash;
 
-//Combination controller for authenticate and admin
+//The controller for authenticate and admin learned in the turorial without relationships
 
 class MainController extends Controller
 {
