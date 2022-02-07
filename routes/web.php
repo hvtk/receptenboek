@@ -2,11 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserTestController;
 use App\Http\Controllers\MainController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -55,15 +54,15 @@ Route::get('/accounts/{account}/edit', [AccountController::class, 'edit'])->name
 //Routes for authenticate and admin
 Route::post('/authenticate/save',[MainController::class, 'save'])->name('authenticate.save');
 Route::post('/authenticate/check',[MainController::class, 'check'])->name('authenticate.check');
-Route::get('/authenticate/logout',[AuthController::class, 'logout'])->name('authenticate.logout');
+Route::get('/authenticate/logout',[MainController::class, 'logout'])->name('authenticate.logout');
 
 Route::group(['middleware'=>['AuthenticateCheck']], function() {
     
-    Route::get('/authenticate/login',[AuthController::class, 'login'])->name('authenticate.login');
-    Route::get('/authenticate/register',[AuthController::class, 'register'])->name('authenticate.register');
+    Route::get('/authenticate/login',[MainController::class, 'login'])->name('authenticate.login');
+    Route::get('/authenticate/register',[MainController::class, 'register'])->name('authenticate.register');
 
-    Route::get('/admin/dashboard',[AdminController::class, 'dashboard']);
-    Route::get('/admin/settings',[AdminController::class, 'settings']);
-    Route::get('/admin/profile',[AdminController::class, 'profile']);
-    Route::get('/admin/staff',[AdminController::class, 'staff']);
+    Route::get('/admin/dashboard',[MainController::class, 'dashboard']);
+    Route::get('/admin/settings',[MainController::class, 'settings']);
+    Route::get('/admin/profile',[MainController::class, 'profile']);
+    Route::get('/admin/staff',[MainController::class, 'staff']);
 });

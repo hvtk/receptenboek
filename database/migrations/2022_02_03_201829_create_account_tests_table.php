@@ -17,7 +17,7 @@ class CreateAccountTestsTable extends Migration
     {
         Schema::create('account_tests', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->BigInteger('user_id')->unsigned();
             $table->string('full_name');
             $table->string('email');
             $table->string('phone');
@@ -31,7 +31,7 @@ class CreateAccountTestsTable extends Migration
             $table->foreign('user_id')
             ->unsigned()
             ->references('id')
-            ->on('user')
+            ->on('users')
             ->onDelete('cascade');
         });
     }
