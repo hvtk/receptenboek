@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\PersonalData;
 
 class PersonalDataController extends Controller
 {
-    //Have to change the code from AccountController to PersonalDataController
     private static function getData() {
         return [];
     }
@@ -14,8 +14,8 @@ class PersonalDataController extends Controller
     public function index()
     {
         // GET
-        return view('accounts.index', [
-            'accounts' => Account::all(),
+        return view('personalData.index', [
+            'personalData' => PersonalData::all(),
             'userInput' => '<script>allert("hello")</script>'
         ]);
     }
@@ -23,7 +23,7 @@ class PersonalDataController extends Controller
     public function create()
     {
         // GET
-        return view('accounts.create');
+        return view('personalData.create');
     }
 
     public function store(Request $request)
@@ -39,17 +39,17 @@ class PersonalDataController extends Controller
         ]);
 
         // POST
-        $account = new Account();
+        $personalData = new PersonalData();
 
-        $account->full_name = strip_tags($request->input('fullName'));
-        $account->email = strip_tags($request->input('email'));
-        $account->phone = strip_tags($request->input('phone'));
-        $account->street = strip_tags($request->input('street'));
-        $account->city = strip_tags($request->input('city'));
-        $account->state = strip_tags($request->input('state'));
-        $account->zip_code = strip_tags($request->input('zipCode'));
+        $personalData->full_name = strip_tags($request->input('fullName'));
+        $personalData->email = strip_tags($request->input('email'));
+        $personalData->phone = strip_tags($request->input('phone'));
+        $personalData->street = strip_tags($request->input('street'));
+        $personalData->city = strip_tags($request->input('city'));
+        $personalData->state = strip_tags($request->input('state'));
+        $personalData->zip_code = strip_tags($request->input('zipCode'));
 
-        $save = $account->save();
+        $save = $personalData->save();
 
         if($save) {
             return back()->with('success', 'The User info has been successfully added to the database.');
@@ -59,11 +59,11 @@ class PersonalDataController extends Controller
         }
     }
 
-    public function show($account)
+    public function show($personalData)
     {
         // GET
-        return view('accounts.show', [
-            'account' => Account::findOrFail($account)
+        return view('personalData.show', [
+            'personalData' => PersonalData::findOrFail($personalData)
         ]);
 
         //The code behind is an alternative from the code above
@@ -81,15 +81,15 @@ class PersonalDataController extends Controller
       //]); 
     }
 
-    public function edit($account)
+    public function edit($personalData)
     {
         // GET
-        return view('accounts.edit', [
-            'account' => Account::findOrFail($account)
+        return view('personalData.edit', [
+            'personalData' => PersonalData::findOrFail($personalData)
         ]);
     }
 
-    public function update(Request $request, $account)
+    public function update(Request $request, $personalData)
     {
         // POST
         $request->validate([
@@ -102,7 +102,7 @@ class PersonalDataController extends Controller
             'zipCode' => 'required',
         ]);
 
-        $record = Account::findOrFail($account);
+        $record = PersonalData::findOrFail($personalData);
 
         $record->full_name = strip_tags($request->input('fullName'));
         $record->email = strip_tags($request->input('email'));
@@ -125,8 +125,8 @@ class PersonalDataController extends Controller
     public function destroy($id)
     {
         // DELETE
-       $account = Account::where('id', $id)->firstOrFail()->delete();
-       echo ("Account record deleted succesfully.");
+       $personalData = PersonalData::where('id', $id)->firstOrFail()->delete();
+       echo ("PersonalData record deleted succesfully.");
 
        return redirect('/');
     }

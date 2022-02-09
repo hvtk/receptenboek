@@ -43,4 +43,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //Get the PersonalData records associated with the User.
+    public function personalData()
+    {
+        return $this->hasOne(PersonalData::class);
+        //Or retrun $this->hasOne('App\Models\PersonalData');
+    }
 }

@@ -25,7 +25,7 @@ class CreatePersonalDataTable extends Migration
             $table->string('zip_code');
             $table->timestamps();
 
-            //set user_id as a foreign key and the account will be deleted if we delete the user
+            //set user_id as a foreign key and the PersonalData will be deleted if we delete the user
             $table->foreign('user_id')
             ->unsigned()
             ->references('id')

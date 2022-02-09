@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use App\Models\PersonalData;
 
 
 class UserController extends Controller
@@ -17,8 +18,25 @@ class UserController extends Controller
         return view('authenticate.register');
     }
 
+    Protected $PersonalDataController;
+    public function __construct(PersonalDataController $PersonalDataController)
+    {
+        $this->PersonalDataController = $PersonalDataController;
+    }
+
     public function save(Request $request) {
         //POST
+        $personalData = new PersonalData();
+
+        $personalData->full_name = strip_tags($request->input('fullName'));
+        $personalData->email = strip_tags($request->input('email'));
+        $personalData->phone = strip_tags($request->input('phone'));
+        $personalData->street = strip_tags($request->input('street'));
+        $personalData->city = strip_tags($request->input('city'));
+        $personalData->state = strip_tags($request->input('state'));
+        $personalData->zip_code = strip_tags($request->input('zipCode'));
+
+        $personalData = $this->PersonalDataController->store($save);
 
         //validate requests
         $request->validate([
@@ -33,6 +51,8 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $save = $user->save();
+
+        $save->personalData()->save($personalData);
 
         if($save) {
             return back()->with('success', 'New User has been successfully added to database.');

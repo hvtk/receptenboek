@@ -6,6 +6,7 @@ use App\Http\Controllers\PostController;
 //use App\Http\Controllers\UserTestController;
 //use App\Http\Controllers\MainController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PersonalDataController;
 
 
 /*
@@ -51,6 +52,16 @@ Route::get('/accounts', [AccountController::class, 'index'])->name('accounts.ind
 Route::get('/accounts/create',[AccountController::class, 'create'])->name('accounts.create');
 Route::get('/accounts/{account}', [AccountController::class, 'show'])->name('accounts.show');
 Route::get('/accounts/{account}/edit', [AccountController::class, 'edit'])->name('accounts.edit');
+
+//routes for personalData
+Route::post('/personalData',[PersonalDataController::class, 'store'])->name('personalData.store');
+Route::put('/personalData/{personalData}', [PersonalDataController::class, 'update'])->name('personalData.update');
+Route::delete('/personalData/{personalData}',[PersonalDataController::class, 'destroy'])->name('personalData.destroy');
+
+Route::get('/personalData', [PersonalDataController::class, 'index'])->name('personalData.index');
+Route::get('/personalData/create',[PersonalDataController::class, 'create'])->name('personalData.create');
+Route::get('/personalData/{personalData}', [PersonalDataController::class, 'show'])->name('personalData.show');
+Route::get('/personalData/{personalData}/edit', [PersonalDataController::class, 'edit'])->name('personalData.edit');
 
 //Routes for authenticate and admin
 //Route::post('/authenticate/save',[MainController::class, 'save'])->name('authenticate.save');
