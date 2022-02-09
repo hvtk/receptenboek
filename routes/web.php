@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\UserTestController;
-use App\Http\Controllers\MainController;
+//use App\Http\Controllers\UserTestController;
+//use App\Http\Controllers\MainController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -52,17 +53,32 @@ Route::get('/accounts/{account}', [AccountController::class, 'show'])->name('acc
 Route::get('/accounts/{account}/edit', [AccountController::class, 'edit'])->name('accounts.edit');
 
 //Routes for authenticate and admin
-Route::post('/authenticate/save',[MainController::class, 'save'])->name('authenticate.save');
-Route::post('/authenticate/check',[MainController::class, 'check'])->name('authenticate.check');
-Route::get('/authenticate/logout',[MainController::class, 'logout'])->name('authenticate.logout');
+//Route::post('/authenticate/save',[MainController::class, 'save'])->name('authenticate.save');
+//Route::post('/authenticate/check',[MainController::class, 'check'])->name('authenticate.check');
+//Route::get('/authenticate/logout',[MainController::class, 'logout'])->name('authenticate.logout');
+
+//Routes for authenticate and admin with user_table
+Route::post('/authenticate/save',[UserController::class, 'save'])->name('authenticate.save');
+Route::post('/authenticate/check',[UserController::class, 'check'])->name('authenticate.check');
+Route::get('/authenticate/logout',[UserController::class, 'logout'])->name('authenticate.logout');
 
 Route::group(['middleware'=>['AuthenticateCheck']], function() {
     
-    Route::get('/authenticate/login',[MainController::class, 'login'])->name('authenticate.login');
-    Route::get('/authenticate/register',[MainController::class, 'register'])->name('authenticate.register');
+    //Routes for authenticate and admin
+    //Route::get('/authenticate/login',[MainController::class, 'login'])->name('authenticate.login');
+    //Route::get('/authenticate/register',[MainController::class, 'register'])->name('authenticate.register');
 
-    Route::get('/admin/dashboard',[MainController::class, 'dashboard']);
-    Route::get('/admin/settings',[MainController::class, 'settings']);
-    Route::get('/admin/profile',[MainController::class, 'profile']);
-    Route::get('/admin/staff',[MainController::class, 'staff']);
+    //Route::get('/admin/dashboard',[MainController::class, 'dashboard']);
+    //Route::get('/admin/settings',[MainController::class, 'settings']);
+    //Route::get('/admin/profile',[MainController::class, 'profile']);
+    //Route::get('/admin/staff',[MainController::class, 'staff']);
+
+    //Routes for authenticate and admin with user_table
+    Route::get('/authenticate/login',[UserController::class, 'login'])->name('authenticate.login');
+    Route::get('/authenticate/register',[UserController::class, 'register'])->name('authenticate.register');
+
+    Route::get('/admin/dashboard',[userController::class, 'dashboard']);
+    Route::get('/admin/settings',[UserController::class, 'settings']);
+    Route::get('/admin/profile',[UserController::class, 'profile']);
+    Route::get('/admin/staff',[UserController::class, 'staff']);
 });

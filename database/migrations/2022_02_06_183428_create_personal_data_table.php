@@ -15,7 +15,23 @@ class CreatePersonalDataTable extends Migration
     {
         Schema::create('personal_data', function (Blueprint $table) {
             $table->id();
+            $table->BigInteger('user_id')->unsigned();
+            $table->string('full_name');
+            $table->string('email');
+            $table->string('phone');
+            $table->string('street');
+            $table->string('city');
+            $table->string('state');
+            $table->string('zip_code');
             $table->timestamps();
+
+            //set user_id as a foreign key and the account will be deleted if we delete the user
+            $table->foreign('user_id')
+            ->unsigned()
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade'); 
+
         });
     }
 
