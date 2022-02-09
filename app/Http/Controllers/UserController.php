@@ -26,17 +26,7 @@ class UserController extends Controller
 
     public function save(Request $request) {
         //POST
-        $personalData = new PersonalData();
-
-        $personalData->full_name = strip_tags($request->input('fullName'));
-        $personalData->email = strip_tags($request->input('email'));
-        $personalData->phone = strip_tags($request->input('phone'));
-        $personalData->street = strip_tags($request->input('street'));
-        $personalData->city = strip_tags($request->input('city'));
-        $personalData->state = strip_tags($request->input('state'));
-        $personalData->zip_code = strip_tags($request->input('zipCode'));
-
-        $personalData = $this->PersonalDataController->store($save);
+        
 
         //validate requests
         $request->validate([
@@ -45,16 +35,19 @@ class UserController extends Controller
             'password'=>'required|min:5|max:12'
         ]);
 
+        $personalData = new PersonalData();
+
         //insert data into user-database
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
-        $save = $user->save();
+        
+        $result = $user->save();
 
-        $save->personalData()->save($personalData);
+        $user->personalData()->save($personalData);
 
-        if($save) {
+        if($result) {
             return back()->with('success', 'New User has been successfully added to database.');
         }
         else {
