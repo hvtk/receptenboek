@@ -32,7 +32,7 @@ class CreateAccountTestsTable extends Migration
             ->unsigned()
             ->references('id')
             ->on('users')
-            ->onDelete('cascade');
+            ->onDelete('cascade'); 
         });
     }
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\PersonalData;
+use App\Models\User;
+use Auth;
 
 class PersonalDataController extends Controller
 {
@@ -29,6 +31,7 @@ class PersonalDataController extends Controller
     public function store(Request $request)
     {
         $request->validate( [
+            'user_id' => [''],
             'fullName' => 'required',
             'email' => ['required', 'email'],
             'phone' => 'required',
@@ -41,6 +44,7 @@ class PersonalDataController extends Controller
         // POST
         $personalData = new PersonalData();
 
+        $personalData->user_id = request()->user()->id;
         $personalData->full_name = strip_tags($request->input('fullName'));
         $personalData->email = strip_tags($request->input('email'));
         $personalData->phone = strip_tags($request->input('phone'));
@@ -49,9 +53,9 @@ class PersonalDataController extends Controller
         $personalData->state = strip_tags($request->input('state'));
         $personalData->zip_code = strip_tags($request->input('zipCode'));
 
-        $save = $personalData->save();
+        $result = $personalData->save();
 
-        if($save) {
+        if($result) {
             return back()->with('success', 'The User info has been successfully added to the database.');
         }
         else {

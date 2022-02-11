@@ -45,7 +45,7 @@ class UserController extends Controller
         
         $result = $user->save();
 
-        $user->personalData()->save($personalData);
+        $result->personalData()->save($personalData);
 
         if($result) {
             return back()->with('success', 'New User has been successfully added to database.');

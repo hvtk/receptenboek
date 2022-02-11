@@ -26,7 +26,7 @@ class PersonalData extends Model
     //Get the User that owns the PersonalData
     public function user()
     {
-       return $this->belongsTo(User::class);
+       return $this->belongsTo(User::class);//Laravel things it is user_id looking to the function name
         //Or return $this->belongsTo('App\Models\User');
     }
 }
