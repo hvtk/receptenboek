@@ -34,7 +34,7 @@
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
                                             <label for="fullName">Full Name</label>
-                                            <input type="text" class="form-control" id="fullName" placeholder="Enter full name" value="{{ $account->full_name }}" name="fullName">
+                                            <input type="text" class="form-control" id="fullName" placeholder="Enter full name" value="{{ $personalData->full_name }}" name="fullName">
                                             @error('fullName')
                                                 <div>
                                                     {{ $message }}
@@ -45,7 +45,7 @@
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
                                             <label for="email">Email</label>
-                                            <input type="email" class="form-control" id="email" placeholder="Enter email ID" value="{{ $account->email }}"  name="email">
+                                            <input type="email" class="form-control" id="email" placeholder="Enter email ID" value="{{ $personalData->email }}"  name="email">
                                             @error('email')
                                                 <div>
                                                     {{ $message }}
@@ -56,7 +56,7 @@
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
                                             <label for="phone">Phone</label>
-                                            <input type="text" class="form-control" id="phone" placeholder="Enter phone number" value="{{ $account->phone }}" name="phone">
+                                            <input type="text" class="form-control" id="phone" placeholder="Enter phone number" value="{{ $personalData->phone }}" name="phone">
                                             @error('phone')
                                                 <div>
                                                     {{ $message }}
@@ -71,7 +71,7 @@
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="street">Street</label>
-                                                <input type="name" class="form-control" id="street" placeholder="Enter Street" value="{{ $account->street }}" name="street">
+                                                <input type="name" class="form-control" id="street" placeholder="Enter Street" value="{{ $personalData->street }}" name="street">
                                                 @error('street')
                                                 <div>
                                                     {{ $message }}
@@ -82,7 +82,7 @@
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="city">City</label>
-                                                <input type="name" class="form-control" id="city" placeholder="Enter City" value="{{ $account->city }}" name="city">
+                                                <input type="name" class="form-control" id="city" placeholder="Enter City" value="{{ $personalData->city }}" name="city">
                                                 @error('city')
                                                 <div>
                                                     {{ $message }}
@@ -93,7 +93,7 @@
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="state">State</label>
-                                                <input type="text" class="form-control" id="state" placeholder="Enter State" value="{{ $account->state }}" name="state">
+                                                <input type="text" class="form-control" id="state" placeholder="Enter State" value="{{ $personalData->state }}" name="state">
                                                 @error('state')
                                                 <div>
                                                     {{ $message }}
@@ -104,7 +104,7 @@
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="zipCode">Zip Code</label>
-                                                <input type="text" class="form-control" id="zipCode" placeholder="Zip Code" value="{{ $account->zip_code }}" name="zipCode">
+                                                <input type="text" class="form-control" id="zipCode" placeholder="Zip Code" value="{{ $personalData->zip_code }}" name="zipCode">
                                                 @error('zipCode')
                                                 <div>
                                                     {{ $message }}
@@ -122,7 +122,7 @@
                                         </div>  
                                     </div>
                                 </form>
-                                <form method="POST" action="{{ route('accounts.destroy', $account->id) }}">
+                                <form method="POST" action="{{ route('personalData.destroy', $personalData->id) }}">
                                         @csrf
                                         @method('DELETE')
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
