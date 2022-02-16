@@ -72,7 +72,7 @@ class UserController extends Controller
         else {
             //check password
             if(Hash::check($request->password, $userInfo->password)) {
-                $request->session()->put('LoggedUser', $userInfo->id);
+                $request->session()->put('LoggedUser', $userInfo->userId);
                 return redirect('admin/dashboard');
             }
             else {
@@ -89,22 +89,22 @@ class UserController extends Controller
     }
 
     public function dashboard() {
-        $data = ['LoggedUserInfo'=>User::where('id','=', session('LoggedUser'))->first()];
+        $data = ['LoggedUserInfo'=>User::where('userId','=', session('LoggedUser'))->first()];
         return view('admin.dashboard', $data);
     }
 
     public function settings() {
-        $data = ['LoggedUserInfo'=>User::where('id','=', session('LoggedUser'))->first()];
+        $data = ['LoggedUserInfo'=>User::where('userId','=', session('LoggedUser'))->first()];
         return view('admin.settings', $data);
     }
 
     public function profile() {
-        $data = ['LoggedUserInfo'=>User::where('id','=', session('LoggedUser'))->first()];
+        $data = ['LoggedUserInfo'=>User::where('userId','=', session('LoggedUser'))->first()];
         return view('admin.profile', $data);
     }
 
     public function staff() {
-        $data = ['LoggedUserInfo'=>user::where('id','=', session('LoggedUser'))->first()];
+        $data = ['LoggedUserInfo'=>user::where('userId','=', session('LoggedUser'))->first()];
         return view('admin.staff', $data);
     }
 }

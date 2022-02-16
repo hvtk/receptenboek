@@ -14,7 +14,7 @@ class CreatePersonalDataTable extends Migration
     public function up()
     {
         Schema::create('personal_data', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('personalDataId');
             $table->unsignedBigInteger('user_id');
             $table->string('full_name')->nullable();
             $table->string('email')->nullable();
@@ -28,7 +28,7 @@ class CreatePersonalDataTable extends Migration
             //set user_id as a foreign key and the PersonalData will be deleted if we delete the user
             $table->foreign('user_id')
             ->unsigned()
-            ->references('id')
+            ->references('userId')
             ->on('users')
             ->onDelete('cascade'); 
 

@@ -43,6 +43,16 @@ Route::get('/posts/create', [PostController::class, 'create'])->name('posts.crea
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
 
+//routes for downloadedInfos(upload images(pdf not defined)
+Route::post('/downloadedInfos',[DownloadedInfoController::class, 'store'])->name('downloadedInfos.store');
+Route::put('/downloadedInfos/{downloadedInfo}', [DownloadedInfoController::class, 'update'])->name('downloadedInfos.update');
+Route::delete('/downloadedInfos/{downloadedInfo}',[DownloadedInfoController::class, 'destroy'])->name('downloadedInfos.destroy');
+
+Route::get('/downloadedInfos/index', [DownloadedInfoController::class, 'index'])->name('downloadedInfos.index');
+Route::get('/downloadedInfos/create', [DownloadedInfoController::class, 'create'])->name('downloadedInfos.create');
+Route::get('/downloadedInfos/{downloadedInfo}', [DownloadedInfoController::class, 'show'])->name('downloadedInfos.show');
+Route::get('/downloadedInfos/{downloadedInfo}/edit', [DownloadedInfoController::class, 'edit'])->name('downloadedInfos.edit');
+
 //routes for accounts
 Route::post('/accounts',[AccountController::class, 'store'])->name('accounts.store');
 Route::put('/accounts/{account}', [AccountController::class, 'update'])->name('accounts.update');
@@ -87,7 +97,7 @@ Route::group(['middleware'=>['AuthenticateCheck']], function() {
     //Route::get('/admin/profile',[MainController::class, 'profile']);
     //Route::get('/admin/staff',[MainController::class, 'staff']);
 
-    //Routes for authenticate and admin with user_table
+    //Routes for authenticate and admin with user_table. Cimmitted because of issue/error. Middleware is not made for one to one relation.
     //Route::get('/authenticate/login',[UserController::class, 'login'])->name('authenticate.login');
     //Route::get('/authenticate/register',[UserController::class, 'register'])->name('authenticate.register');
 

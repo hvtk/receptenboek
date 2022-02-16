@@ -50,4 +50,11 @@ class User extends Authenticatable
         return $this->hasOne(PersonalData::class);
         //Or retrun $this->hasOne('App\Models\PersonalData');
     }
+
+     //Get the DownloadedInfo records associated with the User.
+     public function downloadedInfo()
+     {
+         return $this->hasOne(DownloadedInfo::class);
+         //Or retrun $this->hasOne('App\Models\DownloadedInfo');
+     }
 }

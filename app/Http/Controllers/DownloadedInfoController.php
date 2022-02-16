@@ -11,15 +11,15 @@ class DownloadedInfoController extends Controller
     public function index()
     {
         //GET
-        $data['posts'] = Post::orderBy('id', 'desc')->paginate(5);
+        $data['downloaded_infos'] = DownloadedInfo::orderBy('downloadedInfoId', 'desc')->paginate(5);
 
-        return view('posts.index', $data);
+        return view('downloadedInfos.index', $data);
     }
 
     public function create()
     {
         //GET
-        return view('posts.create');
+        return view('downloadedInfos.create');
     }
 
     public function store(Request $request)
@@ -34,30 +34,30 @@ class DownloadedInfoController extends Controller
         ]);
 
         $path = $request->file('image')->store('public/images');
-        $post = new Post;
-        $post->title = $request->title;
-        $post->description = $request->description;
-        $post->image = $path;
-        $post->save();
+        $downloadedInfo = new DownloadedInfo;
+        $downloadedInfo->title = $request->title;
+        $downloadedInfo->description = $request->description;
+        $downloadedInfo->image = $path;
+        $downloadedInfo->save();
 
-        return redirect()->route('posts.index')
-                        ->with('success', 'Post has been created successfully.');
+        return redirect()->route('downloadedInfos.index')
+                        ->with('success', 'DownloadeInfo has been created successfully.');
     }
 
-    public function show(Post $post)
+    public function show(DownloadedInfo $downloadedInfo)
     {
         //GET
-        return view('posts.show', compact('post'));
+        return view('downloadedInfos.show', compact('downloadedInfo'));
     }
 
-    public function edit(Post $post)
+    public function edit(DownloadedInfo $downloadedInfo)
     {
         //GET
-        return view('posts.edit',compact('post'));
+        return view('downloadedInfos.edit',compact('downloadedInfo'));
     }
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $downloadedInfoId)
     {
         //POST
 
@@ -67,28 +67,28 @@ class DownloadedInfoController extends Controller
             'description' => 'required',
         ]);
 
-        $post = Post::find($id);
+        $downloadedInfo = DownloadedInfo::find($downloadedInfoId);
         if($request->hasFile('image')) {
             $request->validate([
                 'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             ]);
             $path = $request->file('image')->store('public/images');
-            $post->image = $path;
+            $downloadedInfo->image = $path;
         }
-        $post->title = $request->title;
-        $post->description = $request->description;
-        $post->save();
+        $downloadedInfo->title = $request->title;
+        $downloadedInfo->description = $request->description;
+        $downloadedInfo->save();
 
-        return redirect()->route('posts.index')
-                        ->with('success','Post updated successfully.');
+        return redirect()->route('downloadedInfos.index')
+                        ->with('success','DownloadedInfo updated successfully.');
     }
 
-    public function destroy(Post $post)  
+    public function destroy(DownloadedInfo $downloadedInfo)  
     {
         //DELETE
-        $post->delete();
+        $downloadedInfo->delete();
 
-        return redirect()->route('posts.index')
-                        ->with('success', 'Post has been deleted successfully.');
+        return redirect()->route('downloadedInfos.index')
+                        ->with('success', 'DownloadedInfo has been deleted successfully.');
     }
 }
