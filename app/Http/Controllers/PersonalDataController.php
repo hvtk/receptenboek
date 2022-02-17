@@ -44,7 +44,7 @@ class PersonalDataController extends Controller
         // POST
         $personalData = new PersonalData();
 
-        $personalData->user_id = request()->user()->id;
+        $personalData->user_id = request()->user()->userId;
         $personalData->full_name = strip_tags($request->input('fullName'));
         $personalData->email = strip_tags($request->input('email'));
         $personalData->phone = strip_tags($request->input('phone'));
