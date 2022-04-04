@@ -5,17 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\PersonalData;
+use App\Models\DownloadedInfo;
+
 
 class UserController extends Controller
 {
-
-    protected $model;
-
-    public function __construct(User $user)
-    {
-        $this->model = $user;
-    }
-
     public function login() {
         return view('authenticate.login');
     }
@@ -23,6 +18,12 @@ class UserController extends Controller
     public function register() {
         return view('authenticate.register');
     }
+
+    Protected $PersonalDataController;
+    public function __construct(PersonalDataController $PersonalDataController)
+    {
+        $this->PersonalDataController = $PersonalDataController;
+   }
 
     public function save(Request $request) {
         //POST
@@ -34,6 +35,8 @@ class UserController extends Controller
             'password'=>'required|min:5|max:12'
         ]);
 
+        $personalData = new PersonalData();
+
         //insert data into user-database
         $user = new User;
         $user->name = $request->name;
@@ -41,6 +44,8 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
         
         $result = $user->save();
+
+        $user->personalData()->save($personalData);
 
         if($result) {
             return back()->with('success', 'New User has been successfully added to database.');

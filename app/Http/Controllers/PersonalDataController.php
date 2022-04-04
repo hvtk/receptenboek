@@ -9,6 +9,14 @@ use Auth;
 
 class PersonalDataController extends Controller
 {
+
+    protected $model;
+
+    public function __construct(PersonalData $personalData)
+    {
+        $this->model = $personalData;
+    }
+
     private static function getData() {
         return [];
     }
@@ -31,7 +39,7 @@ class PersonalDataController extends Controller
     public function store(Request $request)
     {
         $request->validate( [
-            'user_id' => [''],
+            'user_id', //=> 'exists:users, userId',
             'fullName' => 'required',
             'email' => ['required', 'email'],
             'phone' => 'required',
@@ -42,6 +50,7 @@ class PersonalDataController extends Controller
         ]);
 
         // POST
+
         $personalData = new PersonalData();
 
         $personalData->user_id = request()->user()->userId;

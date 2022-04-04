@@ -16,13 +16,13 @@ class CreatePersonalDataTable extends Migration
         Schema::create('personal_data', function (Blueprint $table) {
             $table->bigIncrements('personalDataId');
             $table->unsignedBigInteger('user_id');
-            $table->string('full_name')->nullable();
-            $table->string('email')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('street')->nullable();
-            $table->string('city')->nullable();
-            $table->string('state')->nullable();
-            $table->string('zip_code')->nullable();
+            $table->string('full_name');
+            $table->string('email');
+            $table->string('phone');
+            $table->string('street');
+            $table->string('city');
+            $table->string('state');
+            $table->string('zip_code');
             $table->timestamps();
 
             //set user_id as a foreign key and the PersonalData will be deleted if we delete the user

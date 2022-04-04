@@ -16,9 +16,9 @@ class CreateDownloadedInfosTable extends Migration
         Schema::create('downloaded_infos', function (Blueprint $table) {
             $table->bigIncrements('downloadedInfoId');
             $table->unsignedBigInteger('user_id');
-            $table->string('title')->nullable();
-            $table->string('image')->nullable();
-            $table->text('description')->nullable();
+            $table->string('title');
+            $table->string('image');
+            $table->text('description');
             $table->timestamps();
 
             //set user_id as a foreign key and the DownloadedInfo will be deleted if we delete the user

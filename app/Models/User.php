@@ -47,14 +47,8 @@ class User extends Authenticatable
     //Get the PersonalData records associated with the User.
     public function personalData()
     {
-        return $this->hasOne(PersonalData::class);
+        return $this->hasOne(PersonalData::class, 'user_id');
         //Or retrun $this->hasOne('App\Models\PersonalData');
     }
 
-     //Get the DownloadedInfo records associated with the User.
-     public function downloadedInfo()
-     {
-         return $this->hasOne(DownloadedInfo::class);
-         //Or retrun $this->hasOne('App\Models\DownloadedInfo');
-     }
 }
